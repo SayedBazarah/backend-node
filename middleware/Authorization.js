@@ -6,8 +6,8 @@ module.exports = (req, res, next) => {
 
   try {
     const payload = jwt.verify(token, config.get("jwtsec"));
-    req.userId = payload.id;
-    if (!payload.id) res.status(401).send({ message: "Access Denied..." });
+    if (!payload.role) res.status(401).send({ message: "Access Denied..." });
+
     next();
   } catch (err) {
     console.log(err);

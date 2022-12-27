@@ -10,7 +10,7 @@ require("dotenv").config();
 
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "2mb" }));
 app.use(cors());
 
 //Database Connection Setup
@@ -29,8 +29,10 @@ mongoose
 
 //Routes
 const UserRoute = require("./route/userRoute");
+const ProductRoute = require("./route/productRoute");
 
 app.use("/api/user", UserRoute);
+app.use("/api/product", ProductRoute);
 
 //PORT
 const PORT = process.env.PORT || 3009;
