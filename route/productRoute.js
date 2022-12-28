@@ -10,6 +10,7 @@ router.get("/category/:name", controller.getCategoryProducts);
 router.get("/search", controller.searchProducts);
 router.get("/slugs", controller.productsSlug);
 router.get("/:slug", controller.getProductBySlug);
+
 //End-Points need Authorization
 router.post("/", authorization, controller.addProduct);
 router.put("/:slug", authorization, controller.updateProduct);

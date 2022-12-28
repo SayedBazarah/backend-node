@@ -7,6 +7,7 @@ const authorization = require("../middleware/Authorization");
 // End-Point '/api/user
 router.post("/login", controller.login);
 router.post("/", controller.newUser);
+
 //Authorized needed for this router
 router.get("/", authorization, controller.getUsers);
 router.get("/:id", authorization, controller.getUser);

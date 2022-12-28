@@ -18,6 +18,8 @@ const login = async (req, res) => {
 
 //new user
 const newUser = async (req, res) => {
+  console.log("LOGIN REQEST ");
+
   let user = await UsersModel.findOne({ email: req.body.email }).exec();
   if (user) return res.status(409).send("User already registered!!");
 
